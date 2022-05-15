@@ -35,9 +35,10 @@ body {
 }
 
 .slide {
+    display: flex;
     width: 20%;
     background-blend-mode: luminosity;
-    text-align: center;
+    justify-content: center;
     box-shadow: 0px 0px 30px 1px wheat inset;
 }
 
@@ -139,4 +140,32 @@ label {
 #slide5:checked~.wrapper .slides-container,
 #slide5:checked~.text-wrapper .text-container {
     transform: translateX(-80%);
+}
+
+@media (max-width: 868px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+
+    .text-wrapper {
+        order: 3;
+    }
+}
+
+@media (max-width: 520px) {
+    .text {
+        font-size: 1.2rem;
+    }
 }
