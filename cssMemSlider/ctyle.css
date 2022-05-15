@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 25rem auto;
+    max-width: 77rem;
+    margin: 0 auto;
+    padding: 3rem;
+    gap: 2rem 0;
+}
+
+.container input {
+    display: none;
+}
+
+.wrapper {
+    width: 100%;
+    grid-column: 1/3;
+    border: 1px solid wheat;
+    overflow: hidden;
+}
+
+.slides-container,
+.text-container {
+    display: flex;
+    width: 500%;
+    transition: 0.3s ease-in-out;
+}
+
+.slide {
+    display: flex;
+    width: 20%;
+    background-blend-mode: luminosity;
+    justify-content: center;
+    box-shadow: 0px 0px 30px 1px wheat inset;
+}
+
+.slide img {
+    height: 25rem;
+}
+
+.slide1 {
+    background: rgba(255, 255, 255, .9) center / cover no-repeat url(./assets/img/1.jpg);
+}
+
+.slide2 {
+    background: rgba(255, 255, 255, .9) center / cover no-repeat url(./assets/img/2.jpg);
+}
+
+.slide3 {
+    background: rgba(255, 255, 255, .9) center / cover no-repeat url(./assets/img/3.jpg);
+}
+
+.slide4 {
+    background: rgba(255, 255, 255, .9) center / cover no-repeat url(./assets/img/4.jpg);
+}
+
+.slide5 {
+    background: rgba(255, 255, 255, .9) center / cover no-repeat url(./assets/img/5.jpg);
+}
+
+.text-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.text {
+    width: 20%;
+    color: wheat;
+    font-size: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: end;
+}
+
+label {
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.label-circle {
+    height: 1rem;
+    width: 1rem;
+    border: 2px solid wheat;
+    border-radius: 50%;
+    transition: all ease-in-out .3s;
+}
+
+.controls label:hover .label-circle {
+    border-color: white;
+    transform: scale(1.4);
+}
+
+.controls label:active .label-circle {
+    background: white;
+}
+
+#slide1:checked~.controls label:nth-of-type(1) .label-circle,
+#slide2:checked~.controls label:nth-of-type(2) .label-circle,
+#slide3:checked~.controls label:nth-of-type(3) .label-circle,
+#slide4:checked~.controls label:nth-of-type(4) .label-circle,
+#slide5:checked~.controls label:nth-of-type(5) .label-circle {
+    background: wheat;
+}
+
+#slide1:checked~.wrapper .slides-container,
+#slide1:checked~.text-wrapper .text-container {
+    transform: translateX(0);
+}
+
+#slide2:checked~.wrapper .slides-container,
+#slide2:checked~.text-wrapper .text-container {
+    transform: translateX(-20%);
+}
+
+#slide3:checked~.wrapper .slides-container,
+#slide3:checked~.text-wrapper .text-container {
+    transform: translateX(-40%);
+}
+
+#slide4:checked~.wrapper .slides-container,
+#slide4:checked~.text-wrapper .text-container {
+    transform: translateX(-60%);
+}
+
+#slide5:checked~.wrapper .slides-container,
+#slide5:checked~.text-wrapper .text-container {
+    transform: translateX(-80%);
+}
+
+@media (max-width: 868px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .slide img {
+        width: 100%;
+        height: auto;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+
+    .text-wrapper {
+        order: 3;
+    }
+}
+
+@media (max-width: 520px) {
+    .text {
+        font-size: 1.2rem;
+    }
+}
