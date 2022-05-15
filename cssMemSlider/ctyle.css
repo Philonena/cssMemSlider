@@ -29,6 +29,8 @@ body {
     background-blend-mode: luminosity;
     box-shadow: 0px 0px 30px 1px wheat inset;
     text-align: center;
+    animation: show 1s 1;
+    animation-fill-mode: forwards;
 }
 
 .slide img {
@@ -59,6 +61,8 @@ body {
     display: none;
     color: wheat;
     font-size: 1.5rem;
+    animation: show 1s 1;
+    animation-fill-mode: forwards;
 }
 
 .controls {
@@ -85,7 +89,12 @@ label {
 }
 
 .controls label:hover .label-circle {
+    border-color: white;
     transform: scale(1.4);
+}
+
+.controls label:active .label-circle {
+    background: white;
 }
 
 #slide1:checked~.controls label:nth-of-type(1) .label-circle,
@@ -107,4 +116,20 @@ label {
 #slide5:checked~.text-container .text:nth-of-type(5),
 #slide5:checked~.slides-container .slide:nth-of-type(5) {
     display: block;
+}
+
+@keyframes show {
+    0% {
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+
+    10% {
+        transform: scale(1.01, 1.01)
+    }
+
+    100% {
+        transform: scale(1.0, 1.0);
+        opacity: 1;
+    }
 }
